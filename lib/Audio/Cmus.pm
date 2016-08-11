@@ -75,7 +75,7 @@ sub status {
 sub curr_file {
 
     my ($self) = @_;
-    return undef if ($self->status ne 'playing');
+    return undef if ($self->status eq 'stopped');
     return $self->{state}->{file};
 
 }
@@ -83,7 +83,7 @@ sub curr_file {
 sub curr_position {
 
     my ($self) = @_;
-    return undef if ($self->status ne 'playing');
+    return undef if ($self->status eq 'stopped');
     return $self->{state}->{position};
 
 }
@@ -91,7 +91,7 @@ sub curr_position {
 sub curr_duration {
 
     my ($self) = @_;
-    return undef if ($self->status ne 'playing');
+    return undef if ($self->status eq 'stopped');
     return $self->{state}->{duration};
 
 }
@@ -99,7 +99,7 @@ sub curr_duration {
 sub curr_tags {
 
     my ($self) = @_;
-    return undef if ($self->status ne 'playing');
+    return undef if ($self->status eq 'stopped');
     return $self->{state}->{tags};
 
 }
