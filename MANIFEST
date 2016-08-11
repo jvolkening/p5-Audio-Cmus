@@ -1,0 +1,12 @@
+.gitattributes
+.travis.yml
+Build.PL
+Changes
+lib/Audio/Cmus.pm
+MANIFEST			This list of files
+t/00-load.t
+t/boilerplate.t
+t/cmus.t
+t/manifest.t
+t/pod-coverage.t
+t/pod.t
