@@ -5,7 +5,7 @@ use warnings;
 
 use Test::More;
 use FindBin;
-use Image::Rsvg;
+use Audio::Cmus;
 
 chdir $FindBin::Bin;
 
