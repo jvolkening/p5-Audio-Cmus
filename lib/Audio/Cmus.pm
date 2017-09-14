@@ -12,12 +12,10 @@ sub new {
 
     my $self = bless {} => $class;
 
-    $socket = $socket // "$ENV{HOME}/.cmus/socket";
-
-    if (! -e $socket) {
-        carp "Socket file missing (is cmus running?)\n";
-        return undef;
-    }
+    $socket = $socket //
+        -e "$ENV{HOME}/.cmus/socket" ? "$ENV{HOME}/.cmus/socket"
+      : -e "$ENV{XDG_RUNTIME_DIR}/cmus-socket" ? "$ENV{XDG_RUNTIME_DIR}/cmus-socket"
+      : croak "No socket file found (is cmus running?)\n";
 
     $self->{socket} = IO::Socket::UNIX->new(
         Type => SOCK_STREAM,
